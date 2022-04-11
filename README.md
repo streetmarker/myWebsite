@@ -1,24 +1,5 @@
-# my-website
+# my-website ( working on 🚧 )
 
-## Project setup
-```
-npm install
-```
+## Project of purpose to present my photos
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Render link: https://m21-photos.onrender.com/
