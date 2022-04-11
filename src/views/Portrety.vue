@@ -1,6 +1,26 @@
+/* eslint-disable semi */
+/* eslint-disable semi */
 <template>
-  <v-container id="dashboard-view" fluid tag="section">
-    <iframe
+  <v-container
+    id="dashboard-view"
+    fluid
+    tag="section"
+  >
+    <img
+      src="https://storage.googleapis.com/example-bucket/cat.jpeg?X-Goog-Algorithm=
+GOOG4-RSA-SHA256&X-Goog-Credential=example%40example-project.iam.gserviceaccount
+.com%2F20181026%2Fus-central1%2Fstorage%2Fgoog4_request&X-Goog-Date=20181026T18
+1309Z&X-Goog-Expires=900&X-Goog-SignedHeaders=host&X-Goog-Signature=247a2aa45f16
+9edf4d187d54e7cc46e4731b1e6273242c4f4c39a1d2507a0e58706e25e3a85a7dbb891d62afa849
+6def8e260c1db863d9ace85ff0a184b894b117fe46d1225c82f2aa19efd52cf21d3e2022b3b868dc
+c1aca2741951ed5bf3bb25a34f5e9316a2841e8ff4c530b22ceaa1c5ce09c7cbb5732631510c2058
+0e61723f5594de3aea497f195456a2ff2bdd0d13bad47289d8611b6f9cfeef0c46c91a455b94e90a
+66924f722292d21e24d31dcfb38ce0c0f353ffa5a9756fc2a9f2b40bc2113206a81e324fc4fd6823
+a29163fa845c8ae7eca1fcf6e5bb48b3200983c56c5ca81fffb151cca7402beddfc4a76b13344703
+2ea7abedc098d2eb14a7"
+      alt=""
+    >
+    <!-- <iframe
       src="https://giphy.com/embed/VGuAZNdkPUpEY"
       width="480"
       height="251"
@@ -10,7 +30,7 @@
     ></iframe>
     <p>
       <a href="https://giphy.com/gifs/meme-nyan-cat-VGuAZNdkPUpEY">via GIPHY</a>
-    </p>
+    </p> -->
     <!-- <v-row>
       <v-col cols="12">
         <v-row>
@@ -197,271 +217,62 @@
 </template>
 
 <script>
-// Utilities
-import { get } from "vuex-pathify";
-import Vue from "vue";
+  // const { google } = require('googleapis')
+  // const CLIENT_ID = '169829791352-r5g9oogt9u41me3e4a4k0iuaaivmgta8.apps.googleusercontent.com'
+  // const CLIENT_SECRET = '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'
+  // const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
 
-const lineSmooth = Vue.chartist.Interpolation.cardinal({
-  tension: 0
-});
+  // const REFRESH_TOKEN = '1//04fQJpR58q1hJCgYIARAAGAQSNgF-L9Ir-tjjg5UpgOiWbdDTRd6YCAeg9AFsbi48wluHZtuxyeiDgJXqNKK2hMsLJtIX2JKquA'
 
-export default {
-  name: "DashboardView",
+  // const oauth2Client = new google.auth.OAuth2(
+  //   CLIENT_ID,
+  //   CLIENT_SECRET,
+  //   REDIRECT_URI,
+  // )
 
-  data: () => ({
-    charts: [
-      {
-        type: "Bar",
-        color: "primary",
-        title: "Website Views",
-        subtitle: "Last Campaign Performance",
-        time: "updated 10 minutes ago",
-        data: {
-          labels: [
-            "Ja",
-            "Fe",
-            "Ma",
-            "Ap",
-            "Mai",
-            "Ju",
-            "Jul",
-            "Au",
-            "Se",
-            "Oc",
-            "No",
-            "De"
-          ],
-          series: [[542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]]
-        },
-        options: {
-          axisX: {
-            showGrid: false
-          },
-          low: 0,
-          high: 1000,
-          chartPadding: {
-            top: 0,
-            right: 5,
-            bottom: 0,
-            left: 0
-          }
-        },
-        responsiveOptions: [
-          [
-            "screen and (max-width: 640px)",
-            {
-              seriesBarDistance: 5,
-              axisX: {
-                labelInterpolationFnc: function(value) {
-                  return value[0];
-                }
-              }
-            }
-          ]
-        ]
-      },
-      {
-        type: "Line",
-        color: "success",
-        title: "Daily Sales",
-        subtitle:
-          '<i class="mdi mdi-arrow-up green--text"></i><span class="green--text">55%</span>&nbsp;increase in today\'s sales',
-        time: "updated 4 minutes ago",
-        data: {
-          labels: ["12am", "3pm", "6pm", "9pm", "12pm", "3am", "6am", "9am"],
-          series: [[230, 750, 450, 300, 280, 240, 200, 190]]
-        },
-        options: {
-          lineSmooth,
-          low: 0,
-          high: 1000, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      },
-      {
-        type: "Line",
-        color: "info",
-        title: "Completed Tasks",
-        subtitle: "Last Campaign Performance",
-        time: "campaign sent 26 minutes ago",
-        data: {
-          labels: ["M", "T", "W", "T", "F", "S", "S"],
-          series: [[12, 17, 7, 17, 23, 18, 38]]
-        },
-        options: {
-          lineSmooth,
-          low: 0,
-          high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-          }
-        }
-      }
-    ],
-    headers: [
-      {
-        sortable: false,
-        text: "ID",
-        value: "id"
-      },
-      {
-        sortable: false,
-        text: "Name",
-        value: "name"
-      },
-      {
-        sortable: false,
-        text: "Salary",
-        value: "salary",
-        align: "right"
-      },
-      {
-        sortable: false,
-        text: "Country",
-        value: "country",
-        align: "right"
-      },
-      {
-        sortable: false,
-        text: "City",
-        value: "city",
-        align: "right"
-      }
-    ],
-    items: [
-      {
-        id: 1,
-        name: "Dakota Rice",
-        country: "Niger",
-        city: "Oud-Tunrhout",
-        salary: "$35,738"
-      },
-      {
-        id: 2,
-        name: "Minerva Hooper",
-        country: "Curaçao",
-        city: "Sinaai-Waas",
-        salary: "$23,738"
-      },
-      {
-        id: 3,
-        name: "Sage Rodriguez",
-        country: "Netherlands",
-        city: "Overland Park",
-        salary: "$56,142"
-      },
-      {
-        id: 4,
-        name: "Philip Chanley",
-        country: "Korea, South",
-        city: "Gloucester",
-        salary: "$38,735"
-      },
-      {
-        id: 5,
-        name: "Doris Greene",
-        country: "Malawi",
-        city: "Feldkirchen in Kārnten",
-        salary: "$63,542"
-      }
-    ],
-    stats: [
-      {
-        actionIcon: "mdi-alert",
-        actionText: "Get More Space...",
-        color: "#FD9A13",
-        icon: "mdi-sofa-single",
-        title: "Bookings",
-        value: "184"
-      },
-      {
-        actionIcon: "mdi-tag",
-        actionText: "Tracked from Google Analytics",
-        color: "primary",
-        icon: "mdi-chart-bar",
-        title: "Website Visits",
-        value: "75.521"
-      },
-      {
-        actionIcon: "mdi-calendar-range",
-        actionText: "Last 24 Hours",
-        color: "success",
-        icon: "mdi-store",
-        title: "Revenue",
-        value: "$34,245"
-      },
-      {
-        actionIcon: "mdi-history",
-        actionText: "Just Updated",
-        color: "info",
-        icon: "mdi-twitter",
-        title: "Followers",
-        value: "+245"
-      }
-    ],
-    tabs: 0,
-    tasks: {
-      0: [
-        {
-          text: 'Sign contract for "What are conference organizers afraid of?"',
-          value: true
-        },
-        {
-          text: "Lines From Great Russian Literature? Or E-mails From My Boss?",
-          value: false
-        },
-        {
-          text:
-            "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-          value: false
-        },
-        {
-          text: "Create 4 Invisible User Experiences you Never Knew About",
-          value: true
-        }
-      ],
-      1: [
-        {
-          text:
-            "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-          value: true
-        },
-        {
-          text: 'Sign contract for "What are conference organizers afraid of?"',
-          value: false
-        }
-      ],
-      2: [
-        {
-          text: "Lines From Great Russian Literature? Or E-mails From My Boss?",
-          value: false
-        },
-        {
-          text:
-            "Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit",
-          value: true
-        },
-        {
-          text: 'Sign contract for "What are conference organizers afraid of?"',
-          value: true
-        }
-      ]
-    }
-  }),
+  // oauth2Client.setCredentials({ refresh_token: REFRESH_TOKEN })
 
-  computed: {
-    sales: get("sales/sales"),
-    totalSales() {
-      return this.sales.reduce((acc, val) => acc + val.salesInM, 0);
-    }
+  // const drive = google.drive({
+  //   version: 'v3',
+  //   auth: oauth2Client,
+  // })
+  export default {
+    mounted () {
+      console.log('mounted')
+      // The ID of your GCS bucket
+const bucketName = 'Edit';
+
+// The full path of your file inside the GCS bucket, e.g. 'yourFile.jpg' or 'folder1/folder2/yourFile.jpg'
+const fileName = 'https://drive.google.com/drive/folders/1D9gMtEt6DMGJUlyM74cip6sYSAxV2Uvy';
+
+// Imports the Google Cloud client library
+const {Storage} = require('@google-cloud/storage');
+
+// Creates a client
+const storage = new Storage();
+
+async function generateV4ReadSignedUrl() {
+  // These options will allow temporary read access to the file
+  const options = {
+    version: 'v4',
+    action: 'read',
+    expires: Date.now() + 15 * 60 * 1000, // 15 minutes
+  };
+
+  // Get a v4 signed URL for reading the file
+  const [url] = await storage
+    .bucket(bucketName)
+    .file(fileName)
+    .getSignedUrl(options);
+
+  console.log('Generated GET signed URL:');
+  console.log(url);
+  console.log('You can use this URL with any user agent, for example:');
+  console.log(`curl '${url}'`);
+}
+
+generateV4ReadSignedUrl().catch(console.error);
+    
+    },
   }
-};
 </script>

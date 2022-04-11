@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <default-bar />
+    <!-- <default-bar /> -->
 
     <default-drawer />
 
@@ -8,7 +8,7 @@
 
     <default-footer />
 
-    <default-settings />
+    <!-- <default-settings /> -->
   </v-app>
 </template>
 
