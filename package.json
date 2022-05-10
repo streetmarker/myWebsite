@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently  \"node server/index.js\" \"cd public && npm run build\"",
+    "start": "concurrently  \"node server/index.js\" \"cd server/public/ && npm run build\"",
     "dev": "nodemon server/index.js"
   },
   "repository": {
