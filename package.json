@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently  \"node server/index.js\" \"cd server/public/ && npm run build\"",
-    "dev": "nodemon server/index.js",
-    "build": "vue-cli-service build"
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",
