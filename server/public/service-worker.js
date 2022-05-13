@@ -8,8 +8,8 @@ const RUNTIME = 'runtime';
 const PRECACHE_URLS = [
   'index.html',
   './', // Alias for index.html
-  '/css/',
-  '/js/',
+  '/css',
+  '/js',
   '/manifest.json',
 ];
 
