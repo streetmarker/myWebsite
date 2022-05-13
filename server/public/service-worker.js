@@ -26,7 +26,7 @@ import { warmStrategyCache } from 'workbox-recipes';
 // Choose a cache name
 const cacheName = 'cache-v1';
 // List the files to precache
-const precacheResources = ['/', '/index.html', '/css/style.css', '/js/main.js', '/js/app/editor.js', '/js/lib/actions.js'];
+const precacheResources = ['/', '/index.html', '/css/', '/js/', '/img/'];
 
 // When the service worker is installing, open the cache and add the precache resources to it
 self.addEventListener('install', (event) => {
