@@ -10,6 +10,7 @@ const PRECACHE_URLS = [
   './', // Alias for index.html
   'css',
   'js',
+  'img',
   'manifest.json',
 ];
 
