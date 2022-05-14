@@ -70,7 +70,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="4">
+        <!-- <v-col cols="4">
           <v-card
             dark
             elevation="12"
@@ -94,8 +94,8 @@
               contain
               class="grey darken-4"
             />
-          </v-card>
-        </v-col>
+          </v-card> -->
+        <!-- </v-col> -->
 
         <!-- <v-form
           ref="form"
@@ -221,16 +221,16 @@
           {
             id: 1,
             url:
-              'https://drive.google.com/uc?id=1HL8w8-r-XnEgS_19JdzYGOJCXDDOpqA-',
+              'https://drive.google.com/uc?id=1SI_aFUvQ0I3BLRUlVvHF30oT6wq12L3E',
           },
-          {
-            id: 2,
-            url: 'https://drive.google.com/uc?id=1AQkgBae1bv2pWdw8Tn5pSQ-nv_MdErOf',
-          },
-          {
-            id: 3,
-            url: 'https://drive.google.com/uc?id=1C0gM8ebbrILGTBPz8p9lxQ64aD-Zmf--',
-          },
+          // {
+          //   id: 2,
+          //   url: 'https://drive.google.com/uc?id=1AQkgBae1bv2pWdw8Tn5pSQ-nv_MdErOf',
+          // },
+          // {
+          //   id: 3,
+          //   url: 'https://drive.google.com/uc?id=1C0gM8ebbrILGTBPz8p9lxQ64aD-Zmf--',
+          // },
 
         ],
         messages: [
