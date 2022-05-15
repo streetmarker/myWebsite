@@ -23,9 +23,11 @@
     <p>END</p>
   </div> -->
     <span style="font-size: 250%">&#171;</span>
-    <span style="font-size: 200%">&#171; MENU</span>
+    <span style="font-size: 200%">&#171; MENUs</span>
     <v-fade-transition mode="out-in">
+      
       <v-row>
+        <v-text-field v-model="tempText" label="temp" />
         <!-- <v-col cols="6">
           <v-card>
             <v-img
@@ -183,7 +185,7 @@
                 <!-- <div class="font-weight-normal">
                   <strong>{{ message.from }}</strong> @{{ message.time }}
                 </div> -->
-                <div v-if="post.text">{{ post.text }}</div>
+                <div v-if="post.text.length>1">{{ post.text }}</div>
               </div>
             </v-timeline-item>
           </v-timeline>
@@ -213,6 +215,7 @@
         error: '',
         text: '',
         //
+        tempText: 'TEM',
         // form: Object.assign({}, defaultForm),
         // defaultForm,
         // comm: '',
@@ -282,6 +285,7 @@
       async createPost () {
         await PostService.insertPost(this.text)
         this.posts = await PostService.getPosts()
+        this.text = ''
       },
       async deletePost (id) {
         await PostService.deletePost(id)

@@ -9,9 +9,11 @@ const PRECACHE_URLS = [
   '/',
   '/index.html',
   '/img/clint-mckoy.36f95307.jpg',
-  '/css',
-  '/js',
-  '/img',
+  // '/css',
+  // '/js',
+  'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
+  'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
+  // '/img',
   '/manifest.json',
 ];
 
@@ -62,7 +64,7 @@ self.addEventListener('fetch', event => {
         });
       })
     );
-  }
+  }caches.delete(RUNTIME)
 });
 
 self.addEventListener('push', function(event) {

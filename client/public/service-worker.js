@@ -1,18 +1,21 @@
 // Names of the two caches used in this version of the service worker.
 // Change to v2, etc. when you update any of the local resources, which will
 // in turn trigger the install event again.
-const PRECACHE = 'precache-v1';
+const PRECACHE = 'precache-v1';//
 const RUNTIME = 'runtime';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
   '/',
   '/index.html',
-  '/img/clint-mckoy.36f95307.jpg',
-  '/css',
-  '/js',
-  '/img',
-  '/manifest.json',
+  // '/img/clint-mckoy.36f95307.jpg',
+  // // '/css',
+  // // '/js',
+  // // '/img',
+  'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900',
+  'https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css',
+  // '../src/views/Portrety.vue'
+  // '/manifest.json',//
 ];
 
 // The install handler takes care of precaching the resources we always need.
@@ -20,7 +23,7 @@ self.addEventListener('install', event => {
   console.log('service worker installed');
   event.waitUntil(
     caches.open(PRECACHE)
-      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(cache => cache.addAll(PRECACHE_URLS))//
       .then(self.skipWaiting())
   );
 });
@@ -45,6 +48,7 @@ self.addEventListener('activate', event => {
 // from the network before returning it to the page.
 self.addEventListener('fetch', event => {
   // Skip cross-origin requests, like those for Google Analytics.
+  console.log('fetch listener');
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
       caches.match(event.request).then(cachedResponse => {
@@ -62,7 +66,7 @@ self.addEventListener('fetch', event => {
         });
       })
     );
-  }
+  }caches.delete(RUNTIME)
 });
 
 self.addEventListener('push', function(event) {
